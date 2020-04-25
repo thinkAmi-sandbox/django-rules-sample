@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}お知らせ詳細{% endblock %}
+
+{% block content %}
+<h3>お知らせ詳細</h3>
+<p>タイトル： {{ object.title }}</p>
+<p>内容： {{ object.content }}</p>
+
+<td><a href="{% url 'myapp:index' %}">一覧へ</a></td>
+{% endblock %}

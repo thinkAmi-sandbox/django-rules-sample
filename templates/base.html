@@ -1,0 +1,18 @@
+{% block load %}{% endblock %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<p>ログインユーザ：{{ request.user.display_name }}</p>
+<p>所属部署：{{ request.user.section.name }}</p>
+<p>権限種類：{{ request.user.permission_type }}</p>
+
+<a href="{% url 'accounts:logout' %}">ログアウト</a>
+
+{% block content %}{% endblock %}
+</body>
+</html>

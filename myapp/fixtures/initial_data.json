@@ -1,0 +1,104 @@
+[
+  {
+    "model": "accounts.Section",
+    "pk": 1,
+    "fields": {
+      "name": "システム部"
+    }
+  },
+  {
+    "model": "accounts.Section",
+    "pk": 2,
+    "fields": {
+      "name": "製造部"
+    }
+  },
+  {
+    "model": "accounts.Section",
+    "pk": 3,
+    "fields": {
+      "name": "営業部"
+    }
+  },
+
+  {
+    "model": "accounts.User",
+    "pk": 1,
+    "fields": {
+      "username": "admin",
+      "display_name": "システム管理者",
+      "password": "pbkdf2_sha256$180000$7bi7okafLu5T$aDHSnnujzykcAbxzibg7MoynKozIF+D1VwS1Kx2mQcg=",
+      "is_active": true,
+      "is_staff": true,
+      "permission_type": 1,
+      "section": 1
+    }
+  },
+  {
+    "model": "accounts.User",
+    "pk": 2,
+    "fields": {
+      "username": "manager",
+      "display_name": "管理職",
+      "password": "pbkdf2_sha256$180000$7bi7okafLu5T$aDHSnnujzykcAbxzibg7MoynKozIF+D1VwS1Kx2mQcg=",
+      "is_active": true,
+      "is_staff": true,
+      "permission_type": 2,
+      "section": 2
+    }
+  },
+  {
+    "model": "accounts.User",
+    "pk": 3,
+    "fields": {
+      "username": "employee1",
+      "display_name": "一般 - 製造部",
+      "password": "pbkdf2_sha256$180000$7bi7okafLu5T$aDHSnnujzykcAbxzibg7MoynKozIF+D1VwS1Kx2mQcg=",
+      "is_active": true,
+      "is_staff": false,
+      "permission_type": 3,
+      "section": 2
+    }
+  },
+  {
+    "model": "accounts.User",
+    "pk": 4,
+    "fields": {
+      "username": "employee2",
+      "display_name": "一般 - 営業部",
+      "password": "pbkdf2_sha256$180000$7bi7okafLu5T$aDHSnnujzykcAbxzibg7MoynKozIF+D1VwS1Kx2mQcg=",
+      "is_active": true,
+      "is_staff": false,
+      "permission_type": 3,
+      "section": 3
+    }
+  },
+
+  {
+    "model": "myapp.News",
+    "pk": 1,
+    "fields": {
+      "title": "システム部へのお知らせ",
+      "content": "システム部向けの内容",
+      "section": 1
+    }
+  },
+  {
+    "model": "myapp.News",
+    "pk": 2,
+    "fields": {
+      "title": "製造部へのお知らせ",
+      "content": "製造部向けの内容",
+      "section": 2
+    }
+  },
+  {
+    "model": "myapp.News",
+    "pk": 3,
+    "fields": {
+      "title": "営業部へのお知らせ",
+      "content": "営業部向けの内容",
+      "section": 3
+    }
+  }
+]

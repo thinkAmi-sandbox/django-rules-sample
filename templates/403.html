@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block title %}403エラー{% endblock %}
+
+{% block content %}
+<p>権限がありません</p>
+<td><a href="{% url 'myapp:index' %}">一覧へ</a></td>
+{% endblock %}

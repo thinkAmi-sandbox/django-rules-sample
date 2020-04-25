@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block load %}
+{% load rules %}
+{% endblock %}
+
+{% block title %}お知らせ一覧{% endblock %}
+
+{% block content %}
+
+<h3>お知らせ一覧</h3>
+
+<p>権限によって、表示/非表示を切り替える</p>
+<ul>
+    {% has_perm 'accounts.admin' request.user as is_admin %}
+    {% if is_admin %}
+        <li>システム管理者だけが見える</li>
+    {% endif %}
+
+    {% has_perm 'accounts.manager' request.user as is_manager %}
+    {% if is_manager %}
+        <li>管理職以上が見える</li>
+    {% endif %}
+
+    {% has_perm 'accounts.employee' request.user as is_employee %}
+    {% if is_employee %}
+        <li>一般が見える</li>
+    {% endif %}
+</ul>
+
+<table border="1" rules="all">
+    <thead>
+    <tr>
+        <th>News ID</th>
+        <th>タイトル</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for news in object_list %}
+        <tr>
+            <td>{{ news.id }}</td>
+            <td><a href="{% url 'myapp:detail' news.id %}">{{ news.title }}</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
