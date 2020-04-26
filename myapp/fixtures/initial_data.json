@@ -100,5 +100,14 @@
       "content": "営業部向けの内容",
       "section": 3
     }
+  },
+  {
+    "model": "myapp.DrfNews",
+    "pk": 1,
+    "fields": {
+      "title": "製造部へのお知らせ(DRF)",
+      "content": "営業部向けの内容(DRF)",
+      "section": 2
+    }
   }
 ]

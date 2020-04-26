@@ -31,6 +31,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 自作アプリ
+    'accounts.apps.AccountsConfig',
+    'myapp.apps.MyappConfig',
+    'api.apps.ApiConfig',
+
+    # 標準
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,12 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # DRF
+    'rest_framework',
+
     # rules.pyを自動的に探してくれる書き方
     'rules.apps.AutodiscoverRulesConfig',
-
-    # 自作アプリ
-    'accounts.apps.AccountsConfig',
-    'myapp.apps.MyappConfig',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +148,11 @@ AUTHENTICATION_BACKENDS = (
     'rules.permissions.ObjectPermissionBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+# DRF向け
+# 今回はBrowsable APIで動作確認するため、確認が楽なCookie認証にしておく
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
